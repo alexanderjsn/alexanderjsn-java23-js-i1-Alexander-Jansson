@@ -9,7 +9,18 @@ const searchMovieBtn = document.getElementById('search-movie');
 const searchPersonBtn = document.getElementById('search-person');
 const rankedBtn = document.getElementById('ranked');
 const popularBtn = document.getElementById('popular');
+let circle = document.getElementById('circle');
 let userInput = document.getElementById('user-input');
+
+
+async function coverImage(url){
+    circle.style.backgroundImage = null;
+    const moviePoster = await fetchData(url);
+    const coverMovie = moviePoster.results[0];
+        circle.style.backgroundImage = 'url(https://image.tmdb.org/t/p/w500' + coverMovie.poster_path + ')';
+}
+
+
 
 // funktion som skapar UI baserat på URL som tas in i parameter
 async function buildUI(url){
@@ -77,6 +88,8 @@ async function fetchData(url){
         throw new Error(`Could not load data ${response.status}`)
     }
 }
+
+coverImage(`https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}`);
 
 rankedBtn.addEventListener('click', async function(){
     buildUI(`https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}`);
