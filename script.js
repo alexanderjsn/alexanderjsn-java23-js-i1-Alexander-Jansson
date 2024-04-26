@@ -2,16 +2,22 @@
 const buttons = document.getElementsByClassName('movie-buttons');
 const apiKey = 'b89807eb08b8124fbb7f608b7511d1a0';
 let userInput;
+const movieDiv = document.getElementById('movie-text');
 const rankedBtn = document.getElementById('ranked');
 const popularBtn = document.getElementById('popular');
 
 // funktion som skapar UI baserat på URL som tas in i parameter
 async function buildUI(url){
+
+    //hämtar datan 
 const movieData = await fetchData(url);
-alert(movieData.title);
-console.log(movieData);
-console.log(movieData.title);
-}
+
+movieData.results.forEach(movie => {
+    let h2 = document.createElement('h2');
+    h2.innerText = movie.title;
+    movieDiv.appendChild(h2);
+})}
+
 
 
 async function fetchData(url){
