@@ -1,15 +1,10 @@
 // hämtar knapparna
 const buttons = document.getElementsByClassName('movie-buttons');
 const apiKey = 'b89807eb08b8124fbb7f608b7511d1a0';
+let userInput;
+const rankedBtn = document.getElementById('ranked');
+const popularBtn = document.getElementById('popular');
 
-
-for (let i = 0; i < buttons.length; i++) {
-    buttons[i].addEventListener('click', function() {
-        let value = this.value;
-        fetchData(`https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}`);
-        //metod calls här
-    })
-}
 
 async function fetchData(url){
     try{
@@ -29,3 +24,10 @@ async function fetchData(url){
         console.log(error);
     }
 }
+
+rankedBtn.addEventListener('click', async function(){
+    fetchData(`https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}`);
+})
+popularBtn.addEventListener('click', async function(){
+    fetchData(`https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}`);
+})
