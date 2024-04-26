@@ -4,6 +4,8 @@ const apiKey = 'b89807eb08b8124fbb7f608b7511d1a0';
 let userInput;
 const movieDiv = document.getElementById('movie-text');
 const movieHeader = document.getElementById('movie-header');
+const movieImage = document.getElementById('movie-images');
+
 const rankedBtn = document.getElementById('ranked');
 const popularBtn = document.getElementById('popular');
 
@@ -12,8 +14,9 @@ async function buildUI(url){
 
     //hämtar datan 
 const movieData = await fetchData(url);
+const tenMovies = movieData.results.slice(0,10);
 
-movieData.results.forEach(movie => {
+tenMovies.forEach(movie => {
     // Skapar h2 element (title)
     let h2 = document.createElement('h2');
     h2.innerText = movie.title;
@@ -30,10 +33,10 @@ movieData.results.forEach(movie => {
     img.alt = movie.title;
     movieHeader.appendChild(img);
     //skapar paragraf (beskrivning)
-    /*let paragraph = document.createElement('paragraph');
+    let paragraph = document.createElement('paragraph');
     paragraph.id = 'description';
     paragraph.innerText = movie.overview;
-    movieDiv.appendChild(paragraph);*/
+    movieHeader.appendChild(paragraph);
 
     //stjärnor för popularitet?
 

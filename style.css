@@ -26,21 +26,23 @@ body {
     font-size: 10px;
 }
 
-#title, #release-date {
-    color: white;
+#title, #release-date, #description {
+    color: antiquewhite;
     display: grid;
     grid-template-columns: 0.1fr;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
 }
 
 #movie-header {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+   
 }
 
 #movie-header img {
-    width: 50px;
+    width: 80px;
     height: 80px;
-    margin-right: 10px;
 }
 
+#description {
+    font-size: 10px;
+}
