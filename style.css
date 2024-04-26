@@ -48,12 +48,7 @@ body {
 }
 
 
-#circle {
-    width:400px;
-    height: 400px;
-    border-radius: 50%;
-    background-color: white;
-}
+
 nav {
 
     display: flex;
@@ -78,18 +73,45 @@ nav ul li a:hover{
     color:#6a1e1e;
 }
 
+
+#container {
+    display: flex;
+    justify-content: space-between;
+}
+
+#left {
+    width:45%;
+    background-color: blue;
+    height: 100px;
+}
+
+
+#circle {
+    width:500px;
+    height: 500px;
+    border-radius: 50%;
+    background-color: white;
+    margin-left: 50px;
+}
+
+
+#right {
+    width: 45%;
+    background-color: red;
+    height: 100px;
+
+}
+
 #cover-title{
+    font-family: 'Bangers', cursive;
     color: antiquewhite;
-    font-size: 100px;
-    margin-top: -200px;
+    font-size: 50px;
 }
 #cover-text{
     color: antiquewhite;
     font-size: 10px;
-    margin-top: -200px;
 }
 #homepage-cover{
-    display: flex;
-    align-items: center;
+
     gap: 300px;
 }

@@ -18,9 +18,17 @@ async function coverImage(url){
     const moviePoster = await fetchData(url);
     const coverMovie = moviePoster.results[0];
         circle.style.backgroundImage = 'url(https://image.tmdb.org/t/p/w500' + coverMovie.poster_path + ')';
-    
-    let coverText = document.getElementById('cover-text');
-    coverText.innerText = coverMovie.title;
+
+    let coverTitle = document.createElement('h2');
+    coverTitle.id = 'cover-title';
+    coverTitle.innerText = coverMovie.title;
+    homepageCover.appendChild(coverTitle);
+
+
+    let coverText = document.createElement('p');
+    coverText.id = 'cover-text';
+    coverText.innerText = coverMovie.overview;	
+    homepageCover.appendChild(coverText);
 }
 
 
