@@ -46,3 +46,11 @@ body {
 #description {
     font-size: 10px;
 }
+
+
+#circle {
+    width:400px;
+    height: 400px;
+    border-radius: 50%;
+    background-color: white;
+}
