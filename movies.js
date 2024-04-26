@@ -1,6 +1,7 @@
 import { fetchData } from './script.js';
 const apiKey = 'b89807eb08b8124fbb7f608b7511d1a0';
 
+//input och knappar
 let userInput = document.getElementById('user-input');
 const searchMovieBtn = document.getElementById('search-movie');
 const searchPersonBtn = document.getElementById('search-person');
@@ -12,6 +13,11 @@ const popularBtn = document.getElementById('popular');
 //div för filmerna
 const movieHeader = document.getElementById('movie-header');
 
+
+
+
+// funktion som skapar UI element för sökningar
+// (fixa så det är en funktion, kanske if statement på url?)
 async function buildUIQuery(url){
     movieHeader.innerHTML = '';
     const movieData = await fetchData(url);
@@ -56,12 +62,16 @@ async function buildUIQuery(url){
     })
 }}
 
+
+// funktion som skapar UI element för populära och rankade filmer
 async function buildUI(url){
     movieHeader.innerHTML = '';
 
     //hämtar datan
 const movieData = await fetchData(url);
 const tenMovies = movieData.results.slice(0,10);
+
+// ifall inga resultat finns
 if(tenMovies.length === 0){
     let error = document.createElement('h2');
     error.id = 'error';
@@ -98,7 +108,7 @@ tenMovies.forEach(movie => {
     paragraph.id = 'description';
     
 
-    //iom att known_for är en Array så användS map för att iterera genom listan och sedan få ut titeln på varje film
+    //iom att known_for är en "lista av objekt" så användS map för att iterera genom listan och sedan få ut titeln på varje film
     // sedan används .join(',') för att seperera titlarna med kommatecken
     paragraph.innerText = movie.overview || movie.known_for.map(movie => movie.title).join(', ');
     movieHeader.appendChild(paragraph);
