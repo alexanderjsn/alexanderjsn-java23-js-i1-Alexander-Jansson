@@ -39,7 +39,10 @@ tenMovies.forEach(movie => {
     //skapar paragraf (beskrivning)
     let paragraph = document.createElement('paragraph');
     paragraph.id = 'description';
-    paragraph.innerText = movie.overview || movie.known_for;
+    
+    //iom att known_for är en Array så användS map för att iterera genom listan och sedan få ut titeln på varje film
+    // sedan används .join(',') för att seperera titlarna med kommatecken
+    paragraph.innerText = movie.overview || movie.known_for.map(movie => movie.title).join(', ');
     movieHeader.appendChild(paragraph);
 
     //stjärnor för popularitet?
