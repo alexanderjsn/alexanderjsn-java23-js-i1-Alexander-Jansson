@@ -54,8 +54,8 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: right;
-    background-color: rgb(21, 20, 20);
-    padding: 10px;
+    width: 100vw;
+    background-color: #6a1e1e;
 }
 
 nav ul {
@@ -75,6 +75,7 @@ nav ul li a:hover{
 
 
 #container {
+    margin-top: 20px;
     display: flex;
     justify-content: space-between;
     min-height: 550px;
