@@ -77,11 +77,11 @@ nav ul li a:hover{
 #container {
     display: flex;
     justify-content: space-between;
+    min-height: 550px;
 }
 
 #left {
     width:45%;
-    background-color: blue;
     height: 100px;
 }
 
@@ -97,9 +97,7 @@ nav ul li a:hover{
 
 #right {
     width: 45%;
-    background-color: red;
     height: 100px;
-
 }
 
 #cover-title{
@@ -109,9 +107,41 @@ nav ul li a:hover{
 }
 #cover-text{
     color: antiquewhite;
-    font-size: 10px;
+    font-size: 30px;
+    font-family: 'Roboto', sans-serif;
+
 }
 #homepage-cover{
-
     gap: 300px;
 }
+
+#popular-category{
+    height: 100px;
+    width: 100px;
+}
+
+#coverpage-images{
+    height: 280px;
+    width: 100px;
+    display:flex;
+    justify-content: space-between;
+    gap: 100px;
+    margin-left: 30px;
+    padding-top: 50px;
+}
+
+#popular-banner{
+    width: 100vw;
+    background-color: #6a1e1e;
+    height: 60px;
+}
+#popular-banner h2 {
+    font-family: 'Bangers', cursive;
+    color: antiquewhite;
+    font-size: 50px;
+    padding-left: 20px;
+}
+
+
+
+
