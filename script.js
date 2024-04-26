@@ -23,23 +23,23 @@ const tenMovies = movieData.results.slice(0,10);
 tenMovies.forEach(movie => {    
     // Skapar h2 element (title)
     let h2 = document.createElement('h2');
-    h2.innerText = movie.title;
+    h2.innerText = movie.title || movie.name
     h2.id = 'title';
     movieHeader.appendChild(h2);
     // Skapar h3 element (release date)
     let h3 = document.createElement('h3');
-    h3.innerText = movie.release_date;
+    h3.innerText = movie.release_date || movie.known_for_department;
     h3.id = 'release-date';
     movieHeader.appendChild(h3);
     //skapar img element (poster)
     let img = document.createElement('img');
-    img.src = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
-    img.alt = movie.title;
+    img.src = "https://image.tmdb.org/t/p/w500" + (movie.profile_path || movie.poster_path);
+    img.alt = 'image not available';
     movieHeader.appendChild(img);
     //skapar paragraf (beskrivning)
     let paragraph = document.createElement('paragraph');
     paragraph.id = 'description';
-    paragraph.innerText = movie.overview;
+    paragraph.innerText = movie.overview || movie.known_for;
     movieHeader.appendChild(paragraph);
 
     //stjärnor för popularitet?
