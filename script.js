@@ -17,6 +17,7 @@ async function buildUI(url){
     movieHeader.innerHTML = '';
 
     //hämtar datan 
+    
 const movieData = await fetchData(url);
 const tenMovies = movieData.results.slice(0,10);
 
@@ -33,13 +34,22 @@ tenMovies.forEach(movie => {
     movieHeader.appendChild(h3);
     //skapar img element (poster)
     let img = document.createElement('img');
+
+    // kollar först om det finns en profile_path i datan som hämtas, tar annars poster_path
     img.src = "https://image.tmdb.org/t/p/w500" + (movie.profile_path || movie.poster_path);
-    img.alt = 'image not available';
+
+    // sätter in filmtitel eller kändisnamn som alt
+    img.alt = 'image of ' + (movie.title || movie.name);
+    img.onerror = function(){
+        // tar in placeholder bild ifall ingen bild finns
+        img.src='https://via.placeholder.com/150/0000ff/ffffff?text=No+Image+Available';
+    };
     movieHeader.appendChild(img);
     //skapar paragraf (beskrivning)
     let paragraph = document.createElement('paragraph');
     paragraph.id = 'description';
     
+
     //iom att known_for är en Array så användS map för att iterera genom listan och sedan få ut titeln på varje film
     // sedan används .join(',') för att seperera titlarna med kommatecken
     paragraph.innerText = movie.overview || movie.known_for.map(movie => movie.title).join(', ');
@@ -62,12 +72,10 @@ async function fetchData(url){
             const data = await response.json();
             //returnerar datan baserat på url när metoden kallas
             return data;
-            console.log(data);
         }
-    
 
     } catch(error){
-        console.log(error);
+        throw new Error(`Could not load data ${response.status}`)
     }
 }
 
