@@ -4,7 +4,6 @@ const apiKey = 'b89807eb08b8124fbb7f608b7511d1a0';
 let userInput;
 const movieDiv = document.getElementById('movie-text');
 const movieHeader = document.getElementById('movie-header');
-const movie = document.getElementsByClassName('movie');
 const rankedBtn = document.getElementById('ranked');
 const popularBtn = document.getElementById('popular');
 
@@ -19,14 +18,17 @@ movieData.results.forEach(movie => {
     let h2 = document.createElement('h2');
     h2.innerText = movie.title;
     h2.id = 'title';
-    movie.appendChild(h2);
+    movieHeader.appendChild(h2);
     // Skapar h3 element (release date)
     let h3 = document.createElement('h3');
     h3.innerText = movie.release_date;
     h3.id = 'release-date';
-    movie.appendChild(h3);
+    movieHeader.appendChild(h3);
     //skapar img element (poster)
-
+    let img = document.createElement('img');
+    img.src = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
+    img.alt = movie.title;
+    movieHeader.appendChild(img);
     //skapar paragraf (beskrivning)
     /*let paragraph = document.createElement('paragraph');
     paragraph.id = 'description';
