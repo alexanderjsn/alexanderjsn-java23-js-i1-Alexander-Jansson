@@ -1,4 +1,4 @@
-.movie-buttons {
+button {
     display: flexbox;
     align-items: center;
     justify-content: center;
@@ -10,4 +10,27 @@
 
 body {
     background-color: rgb(21, 20, 20);
+}
+
+
+#movie-text{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+}
+
+
+.movie {
+    display: flex;
+    flex-direction: column;
+}
+
+#title {
+    color: white;
+
+}
+
+#release-date{
+    color: white;
+
 }
