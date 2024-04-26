@@ -144,5 +144,23 @@ nav ul li a:hover{
 }
 
 
+#error {    font-family: 'Bangers', cursive;
+    color: antiquewhite;
+    font-size: 50px;
+    padding-left: 20px;}
 
 
+#moviepage-images{
+    height: 280px;
+    width: 100px;
+    display:flex;
+    justify-content: space-between;
+    gap: 100px;
+    margin-left: 30px;
+    padding-top: 50px;
+}
+
+#all-movies{
+    height: 100px;
+    width: 100px;
+}
