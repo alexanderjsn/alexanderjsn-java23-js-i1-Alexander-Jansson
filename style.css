@@ -13,9 +13,6 @@ body {
 }
 
 
-#movie-text{
-    
-}
 
 
 #title {
@@ -30,13 +27,10 @@ body {
     color: antiquewhite;
     display: grid;
     grid-template-columns: 0.1fr;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Roboto', sans-serif;
 
 }
 
-#movie-header {
-   
-}
 
 #movie-header img {
     width: 80px;
@@ -45,6 +39,7 @@ body {
 
 #description {
     font-size: 10px;
+
 }
 
 
@@ -67,6 +62,9 @@ nav ul {
 
 nav ul li a{
     color: antiquewhite;
+    font-family: 'Roboto', sans-serif;
+    text-decoration: none;
+
 }
 
 nav ul li a:hover{
@@ -131,12 +129,12 @@ nav ul li a:hover{
     padding-top: 50px;
 }
 
-#popular-banner{
+.popular-banner{
     width: 100vw;
     background-color: #6a1e1e;
     height: 60px;
 }
-#popular-banner h2 {
+.popular-banner h2 {
     font-family: 'Bangers', cursive;
     color: antiquewhite;
     font-size: 50px;

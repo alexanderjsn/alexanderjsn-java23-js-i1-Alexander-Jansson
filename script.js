@@ -7,7 +7,8 @@ const coverpageImages = document.getElementById('coverpage-images');
 
 async function coverImage(url){
     const moviePoster = await fetchData(url);
-    const coverMovie = moviePoster.results[0];
+    const random = Math.floor(Math.random() * 10);
+    const coverMovie = moviePoster.results[random];
         circle.style.backgroundImage = 'url(https://image.tmdb.org/t/p/w500' + coverMovie.poster_path + ')';
 
     let coverTitle = document.createElement('h2');
