@@ -81,4 +81,15 @@ nav ul li a:hover{
 #cover-title{
     color: antiquewhite;
     font-size: 100px;
+    margin-top: -200px;
+}
+#cover-text{
+    color: antiquewhite;
+    font-size: 10px;
+    margin-top: -200px;
+}
+#homepage-cover{
+    display: flex;
+    align-items: center;
+    gap: 300px;
 }

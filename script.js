@@ -11,13 +11,16 @@ const rankedBtn = document.getElementById('ranked');
 const popularBtn = document.getElementById('popular');
 let circle = document.getElementById('circle');
 let userInput = document.getElementById('user-input');
-
+const homepageCover = document.getElementById('homepage-cover');
 
 async function coverImage(url){
     circle.style.backgroundImage = null;
     const moviePoster = await fetchData(url);
     const coverMovie = moviePoster.results[0];
         circle.style.backgroundImage = 'url(https://image.tmdb.org/t/p/w500' + coverMovie.poster_path + ')';
+    
+    let coverText = document.getElementById('cover-text');
+    coverText.innerText = coverMovie.title;
 }
 
 
