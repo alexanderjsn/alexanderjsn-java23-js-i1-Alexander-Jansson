@@ -1,22 +1,26 @@
 // hämtar knapparna
 const buttons = document.getElementsByClassName('movie-buttons');
 const apiKey = 'b89807eb08b8124fbb7f608b7511d1a0';
-let userInput;
+let userInput = document.getElementById('user-input');
 const movieDiv = document.getElementById('movie-text');
 const movieHeader = document.getElementById('movie-header');
 const movieImage = document.getElementById('movie-images');
+const searchMovieBtn = document.getElementById('search-movie');
+
+const searchPersonBtn = document.getElementById('search-person');
 
 const rankedBtn = document.getElementById('ranked');
 const popularBtn = document.getElementById('popular');
 
 // funktion som skapar UI baserat på URL som tas in i parameter
 async function buildUI(url){
+    movieHeader.innerHTML = '';
 
     //hämtar datan 
 const movieData = await fetchData(url);
 const tenMovies = movieData.results.slice(0,10);
 
-tenMovies.forEach(movie => {
+tenMovies.forEach(movie => {    
     // Skapar h2 element (title)
     let h2 = document.createElement('h2');
     h2.innerText = movie.title;
@@ -68,5 +72,14 @@ rankedBtn.addEventListener('click', async function(){
     buildUI(`https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}`);
 })
 popularBtn.addEventListener('click', async function(){
-    fetchData(`https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}`);
+    buildUI(`https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}`);
 })
+searchMovieBtn.addEventListener('click', async function(){
+    let searchInput = userInput.value;
+    buildUI(`https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${searchInput}`);
+})
+searchPersonBtn.addEventListener('click', async function(){
+    let searchInput = userInput.value;
+    buildUI(`https://api.themoviedb.org/3/search/person?api_key=${apiKey}&query=${searchInput}`);
+})
+
