@@ -1,16 +1,15 @@
-// hämtar knapparna
-const buttons = document.getElementsByClassName('movie-buttons');
+// api
 const apiKey = 'b89807eb08b8124fbb7f608b7511d1a0';
-let userInput = document.getElementById('user-input');
-const movieDiv = document.getElementById('movie-text');
+
+//div för filmerna
 const movieHeader = document.getElementById('movie-header');
-const movieImage = document.getElementById('movie-images');
+
+//knappar och input
 const searchMovieBtn = document.getElementById('search-movie');
-
 const searchPersonBtn = document.getElementById('search-person');
-
 const rankedBtn = document.getElementById('ranked');
 const popularBtn = document.getElementById('popular');
+let userInput = document.getElementById('user-input');
 
 // funktion som skapar UI baserat på URL som tas in i parameter
 async function buildUI(url){
