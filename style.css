@@ -162,3 +162,8 @@ nav ul li a:hover{
     height: 100px;
     width: 100px;
 }
+
+.errorMessage{font-family: 'Bangers', cursive;
+    color: antiquewhite;
+    font-size: 50px;
+    padding-left: 20px;}

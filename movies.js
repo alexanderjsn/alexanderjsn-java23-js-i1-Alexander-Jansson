@@ -19,6 +19,7 @@ const movieHeader = document.getElementById('movie-header');
 // funktion som skapar UI element för sökningar
 // (fixa så det är en funktion, kanske if statement på url?)
 async function buildUIQuery(url){
+try{
     movieHeader.innerHTML = '';
     const movieData = await fetchData(url);
     if(movieData.total_results === 0){
@@ -53,18 +54,27 @@ async function buildUIQuery(url){
         //skapar paragraf (beskrivning)
         let paragraph = document.createElement('paragraph');
         paragraph.id = 'description';
-        
-    
         //iom att known_for är en Array så användS map för att iterera genom listan och sedan få ut titeln på varje film
         // sedan används .join(',') för att seperera titlarna med kommatecken
         paragraph.innerText = movie.overview || movie.known_for.map(movie => movie.title).join(', ');
         movieHeader.appendChild(paragraph);    
     })
-}}
+}
+}catch(error) {
+    // returnerar error
+    console.log(error);
+    let errorMessage = document.createElement('h2');
+    errorMessage.id = 'error';
+    errorMessage.innerText = 'Network error! Please try again.  ';
+    movieHeader.appendChild(errorMessage);   
+    }
+}
+
 
 
 // funktion som skapar UI element för populära och rankade filmer
 async function buildUI(url){
+try{
     movieHeader.innerHTML = '';
 
     //hämtar datan
@@ -117,7 +127,19 @@ tenMovies.forEach(movie => {
 
     // en rund bild top 1 av rankade filmer
 
-})}}
+}
+)}
+}catch(error) {
+    // returnerar error
+    console.log(error);
+    let errorMessage = document.createElement('h2');
+    errorMessage.id = 'error';
+   errorMessage.innerText = 'Network error! Please try again.  ';
+    movieHeader.appendChild(errorMessage);   
+
+}
+}
+
 rankedBtn.addEventListener('click', async function(){
     buildUI(`https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}`);
 })
